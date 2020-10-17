@@ -108,8 +108,83 @@ print([x**2 for x in range(10)])
 x=10
 y=20
 print(x-y) if x>y else print(y-x)
-
+print("*****************")
 x = []
 for x in range(10):
     y=x**2
     print(y)
+print("*****************")
+
+def greeting():
+    print("*****************")
+    print("hello...")
+    print("welcome to data scirnce course")
+    print("we have just started")
+    print("end of function")
+greeting()
+greeting()
+
+def greeting1(name):
+    print("*****************")
+    print("hello...",name)
+    print("welcome to data scirnce course")
+    print("we have just started")
+    print("end of function")
+
+greeting1("sudhir")
+
+print("*****************")
+def func(name, age):
+    print(f"hi {name}")
+    print(f'you will be {age+5} yrs old in 2025')
+
+func("sudhir",40)
+
+print("*****************")
+def func2(name, age=25):
+    print(f"hi {name}")
+    print(f'you will be {age+5} yrs old in 2025')
+
+func2("mohan",30)
+func2("ganesh")
+
+print("*****************")
+def func3(name, age=25, ph='92853'):
+    print(f"hi {name}")
+    print(f'you will be {age+5} yrs old in 2025')
+    print(ph)
+
+func3('Alex',ph=8377, age=27)
+print("*****************")
+func3(name='sudhir',age = 20, ph=8377)
+
+print("*****************")
+func3(age = 20, ph=8377,name='raman')
+
+
+print("*****************")
+def func4(name, gender, city, age=25, ph='92853'):
+    print(f"hi {name}")
+    print(f'you will be {age+5} yrs old in 2025')
+    print(ph)
+    print(city)
+    print(gender)
+
+func4('Akash','M',ph='7366',city='Meerut')
+
+print("*****************")
+def func5(*details, age=25, ph='92853'):
+    print(f"hi {details}")
+    print(f'you will be {age+5} yrs old in 2025')
+    print(ph)
+
+func5('Akash','M','Meerut',ph='7366')
+
+print("*****************")
+def func6(*args, age=25, ph='92853'):
+    print(f"hi {args}")
+    print(f"hi {args[0]}")
+    print(f'you will be {age+5} yrs old in 2025')
+    print(ph)
+
+func6('Akash','M','Meerut',ph='7366')
