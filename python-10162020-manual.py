@@ -33,8 +33,8 @@ for ele in tp:
     print(s)
 print("*****************")
 # ss=''
-# print(''.join(tp))    
-    
+# print(''.join(tp))
+
 
 print("*****************")
 names = ('akash','vikas','john','alex')
@@ -101,10 +101,15 @@ for name in names:
     if len(name)>6:
         long_name.append(name)
 print(long_name)
-# gen_names = 
+# gen_names =
 print([name for name in names if len(name)>6])
 
 print([x**2 for x in range(10)])
 x=10
 y=20
 print(x-y) if x>y else print(y-x)
+
+x = []
+for x in range(10):
+    y=x**2
+    print(y)
