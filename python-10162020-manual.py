@@ -94,3 +94,17 @@ print(s)
 print(s[1][1])
 print("*****************")
 print(ladies_purse.get('cards')[1][1])
+
+long_name=[]
+names = ['akash','Alexander','Frederick', 'Jean', 'Murlidhar']
+for name in names:
+    if len(name)>6:
+        long_name.append(name)
+print(long_name)
+# gen_names = 
+print([name for name in names if len(name)>6])
+
+print([x**2 for x in range(10)])
+x=10
+y=20
+print(x-y) if x>y else print(y-x)
