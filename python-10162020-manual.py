@@ -188,3 +188,21 @@ def func6(*args, age=25, ph='92853'):
     print(ph)
 
 func6('Akash','M','Meerut',ph='7366')
+
+print("*****************")
+def func7(*args, **kwargs):
+    print(f"hi {args}")
+    print(f"hi {args[0]}")
+    print(kwargs)
+    print(len(args))
+    print(len(kwargs))
+    # print(f'you will be {age+5} yrs old in 2025')
+    # print(ph)
+
+func7('Akash','M','Meerut',course='data scirnce',ph='7366')
+# course, ph and city are keyword arguments or non-positional arguments
+print("*****************")
+def add(x,y):
+    return x+y
+
+print(add(7,3))
