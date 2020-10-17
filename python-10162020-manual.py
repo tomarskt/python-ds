@@ -6,6 +6,24 @@ lst.append('NEW')
 print(lst)
 files=['first.py','second','third.py','4th','fifth','1.py']
 print(files)
+
 for file in files:
     if file.endswith('py'):
         print(file)
+print("*****************")
+for file in files:
+    if file[len(file)-3:] == '.py':
+        print(file)
+names=[]
+print("*****************")
+thistuple = ("apple", "banana", "cherry")
+for x in thistuple:
+  print(x)
+print("*****************")
+tp = (2,'four',5,'p','y','t','h','o','n','NEW')
+print(type(tp))
+print(tp[0])
+print(tp.count(2))
+print(tp.index(2))
+print(tp.count(5))
+print(tp.index(5))
