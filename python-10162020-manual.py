@@ -240,3 +240,14 @@ tp=(2,"ok")
 print(''.join(map(str,tp)))
 
 print(list(map(str.upper, 'python is fun'.split())))
+
+Use a student database to store details and allow to perform CRUD operations. Menu Driven
+
+print(1. Add student)
+print(2. update student details)
+ch = int(input('enter your choice:'))
+if ch ==1
+    add_student()
+elif ch == 2:
+    update()
+.
