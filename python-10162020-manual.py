@@ -35,9 +35,19 @@ print("*****************")
 # ss=''
 # print(''.join(tp))    
     
-mydict = {'name':'akash','age': 26}
-print(type(mydict))
-print(mydict['name'])
+
 print("*****************")
 names = ('akash','vikas','john','alex')
 print('-'.join(names))
+
+mydict = {'name':'akash','age': 26}
+print(type(mydict))
+print(mydict['name'])
+# print(mydict(0))
+d = {}
+print(type(d))
+d['a'] = 'one'
+print(len(d))
+print(d['a'])
+d['a'] += 'two'
+print(d)
