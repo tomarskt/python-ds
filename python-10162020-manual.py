@@ -218,3 +218,25 @@ print(type(y))
 z=square(7)
 print(type(z))
 print(y(7))
+print("*****************")
+p = lambda x: x**2
+print(p(6))
+
+print("*****************")
+q= lambda x,y: x+y
+print(q(6,10))
+print("*****************")
+a = lambda x,y: x-y if x>y else y-x
+print(a(12,34))
+print(a(34,12))
+
+print([word.upper() for word in ['python','is','fun']])
+
+print(list(map(square, [3,6,7,5])))
+
+print(list(map(lambda x: x**2, [3,6,7,5])))
+
+tp=(2,"ok")
+print(''.join(map(str,tp)))
+
+print(list(map(str.upper, 'python is fun'.split())))
