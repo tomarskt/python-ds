@@ -251,3 +251,18 @@ if ch ==1
 elif ch == 2:
     update()
 .
+
+
+Use a student database to store details and allow to perform CRUD operations. Menu driven 
+
+while True: 
+print('1. Add studnet') 
+print('2. update studnet details') 
+ch = int(input('enter your choice: ')) 
+if ch == 1: 
+add_student() 
+elif ch==2: 
+update() 
+. 
+. 
+.
