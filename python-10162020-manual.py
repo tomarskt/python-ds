@@ -203,6 +203,18 @@ func7('Akash','M','Meerut',course='data scirnce',ph='7366')
 # course, ph and city are keyword arguments or non-positional arguments
 print("*****************")
 def add(x,y):
-    return x+y
+    return x,y,x+y
 
 print(add(7,3))
+
+print("*****************")
+def square(x):
+    return x**2
+
+print(square(9))
+
+y = square
+print(type(y))
+z=square(7)
+print(type(z))
+print(y(7))
