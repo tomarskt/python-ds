@@ -27,3 +27,17 @@ print(tp.count(2))
 print(tp.index(2))
 print(tp.count(5))
 print(tp.index(5))
+s=''
+for ele in tp:
+    s = s+str(ele)
+    print(s)
+print("*****************")
+# ss=''
+# print(''.join(tp))    
+    
+mydict = {'name':'akash','age': 26}
+print(type(mydict))
+print(mydict['name'])
+print("*****************")
+names = ('akash','vikas','john','alex')
+print('-'.join(names))
