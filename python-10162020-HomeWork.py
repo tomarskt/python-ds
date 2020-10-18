@@ -125,5 +125,6 @@ with open('/Users/stomar-n/001_sudhir_2020_nmac/cognexia_training_python/1017202
 # with open('/Volume/MacData/Data/NSE-INFY.csv') as infy:
 #     contents = infy.read()
 
-with open('/Users/stomar-n/001_sudhir_2020_nmac/cognexia_training_python/10172020/sample2.txt','w') as fh:
-    fh.write('python is fun')
+with open('/Users/stomar-n/001_sudhir_2020_nmac/cognexia_training_python/10172020/sample2.txt','w+') as fh:
+    fh.write(100*'python is fun1\n')
+    fh.writelines(['line 1', 'line 2'])
