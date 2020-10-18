@@ -51,8 +51,12 @@
 # write a function which takes a day (string) and a number (k) as arguments and return a day of the week that is k days later
 # e.g. s='wed' and k = 2 --> function should return 'fri'
 
-
-
+# day = input('Enter the day:')
+# ahead_num = int(input('Enter the ahead number:'))
+# print(f'{day}  {ahead_num}')
+# week_days = ['mon','tue','wed','thu','fri','sat','sun']
+# print( ahead_num % 7)
+# print()
 # def isPrime(number):
 #     if number > 1:
 #        for i in range(2, number):
@@ -70,13 +74,13 @@
 
 
 
-def my_factorial(x):
-    fact = 1
-    for i in range(1,x+1):
-        fact = fact * i
-    return fact
-factorial = int(input('Enter a number to check for factorial:'))
-print (f'The factorial of {factorial} is : {my_factorial(factorial)} ')
+# def my_factorial(x):
+#     fact = 1
+#     for i in range(1,x+1):
+#         fact = fact * i
+#     return fact
+# factorial = int(input('Enter a number to check for factorial:'))
+# print (f'The factorial of {factorial} is : {my_factorial(factorial)} ')
 
-import math
-print(math.factorial(9))
+# import math
+# print(math.factorial(9))
