@@ -108,6 +108,7 @@ contents = fh.read()
 print(contents)
 fh.close()
 
-with open('/Users/stomar-n/001_sudhir_2020_nmac/cognexia_training_python/10172020/sample.txt')
+with open('/Users/stomar-n/001_sudhir_2020_nmac/cognexia_training_python/10172020/sample.txt') as fh:
     contents = fh.read()
     print(contents)
+    print(dir(fh))
