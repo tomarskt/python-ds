@@ -155,7 +155,26 @@ circle2_name = 'B'
 circle3_radius = 5.3
 circle3_name = 'B'
 
+# from math import pi
+# class Circle:
+#     radius = 3.1
+#     name ='A'
+#     def calc_area(self):
+#         print(pi*self.radius**2)
+# c1 = Circle()
+# print(c1.radius)
+# print(c1.calc_area())
+
+from math import pi
 class Circle:
-    radius = 3.1
-c1 = Circle()
-print(c1.radius)
+    def __init__(self, radius):
+        self.radius = radius
+        self.name = 'A'
+    def calc_area(self):
+        print(pi*self.radius**2)
+        return pi*self.radius**2
+
+c1 = Circle(4.2)
+c2 = Circle(5.1)
+print(c1.calc_area())
+print(c2.calc_area())
