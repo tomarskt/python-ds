@@ -128,3 +128,20 @@ with open('/Users/stomar-n/001_sudhir_2020_nmac/cognexia_training_python/1017202
 with open('/Users/stomar-n/001_sudhir_2020_nmac/cognexia_training_python/10172020/sample2.txt','w+') as fh:
     fh.write(100*'python is fun1\n')
     fh.writelines(['line 1', 'line 2'])
+
+# k = 10
+# print('hello')
+# try:
+#     num = int(input('enter a number:'))
+#     print(k/num)
+# except ZeroDivisionError:
+#     print('Exception is handled')
+#     num = int(input('enter a number:'))
+#     print(k/num)
+# except ValueError:
+#     print('value error')
+# except Exception:
+#     print('Generic handling error')
+#
+# print('important stuff here')
+# print('end of program')
