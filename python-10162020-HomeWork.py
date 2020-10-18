@@ -259,5 +259,10 @@ print(a3)
 print(np.arange(100).reshape(5,20))
 print(a2.sum())
 print(a2[0].sum())
-print(a2.sum(axis=0))
-print(a2.sum(axis=1))
+print(a2.sum(axis=0)) # columns
+print(a2.sum(axis=1)) # rows
+
+a4 = np.arange(9).reshape(3,3)
+print(a4)
+print(a4.sum(axis=0))
+print(a4.sum(axis=1))
