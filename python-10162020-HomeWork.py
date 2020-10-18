@@ -145,3 +145,17 @@ with open('/Users/stomar-n/001_sudhir_2020_nmac/cognexia_training_python/1017202
 #
 # print('important stuff here')
 # print('end of program')
+
+radius = 4.2
+name ='A'
+color = 'red'
+circle2_radius = 5.3
+circle2_name = 'B'
+
+circle3_radius = 5.3
+circle3_name = 'B'
+
+class Circle:
+    radius = 3.1
+c1 = Circle()
+print(c1.radius)
