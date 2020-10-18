@@ -33,6 +33,8 @@
 #         delete()
 #     elif ch==4:
 #         display()
+#     elif ch==5:
+#         save_to_file()
 #     else:
 #         break
 
@@ -99,3 +101,7 @@ def validate(x):
 
 print(list(map(validate,['34','6','12','9','-1'])))
 print(list(map(str.upper,['python','is','fun'])))
+
+
+fh = open('/Users/stomar-n/001_sudhir_2020_nmac/cognexia_training_python/10172020/sample.txt')
+print(fh.read())
