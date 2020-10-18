@@ -84,3 +84,18 @@
 
 # import math
 # print(math.factorial(9))
+
+
+# map function
+map(int, ['34','6','12','9'])
+print([int(x) for x in ['34','6','12','9']])
+print(list(map(int, ['34','6','12','9'])))
+
+def validate(x):
+    if int(x)<0:
+        return 0
+    else:
+        return int(x)
+
+print(list(map(validate,['34','6','12','9','-1'])))
+print(list(map(str.upper,['python','is','fun'])))
