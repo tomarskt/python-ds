@@ -104,4 +104,10 @@ print(list(map(str.upper,['python','is','fun'])))
 
 
 fh = open('/Users/stomar-n/001_sudhir_2020_nmac/cognexia_training_python/10172020/sample.txt')
-print(fh.read())
+contents = fh.read()
+print(contents)
+fh.close()
+
+with open('/Users/stomar-n/001_sudhir_2020_nmac/cognexia_training_python/10172020/sample.txt')
+    contents = fh.read()
+    print(contents)
