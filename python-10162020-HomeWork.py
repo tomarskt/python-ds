@@ -109,6 +109,21 @@ print(contents)
 fh.close()
 
 with open('/Users/stomar-n/001_sudhir_2020_nmac/cognexia_training_python/10172020/sample.txt') as fh:
+    # fh.writelines("sudhir tomar last line")
     contents = fh.read()
     print(contents)
+    print(type(contents))
+    contents = fh.readline()
+    print(contents)
+    contents = fh.readline()
+    print(contents)
     print(dir(fh))
+    print('**' * 20)
+    print(fh.read())
+    print('**' * 20)
+
+# with open('/Volume/MacData/Data/NSE-INFY.csv') as infy:
+#     contents = infy.read()
+
+with open('/Users/stomar-n/001_sudhir_2020_nmac/cognexia_training_python/10172020/sample2.txt','w') as fh:
+    fh.write('python is fun')
