@@ -178,3 +178,7 @@ c1 = Circle(4.2)
 c2 = Circle(5.1)
 print(c1.calc_area())
 print(c2.calc_area())
+
+from math import factorial
+from math import factorial, sqrt
+import math as m
