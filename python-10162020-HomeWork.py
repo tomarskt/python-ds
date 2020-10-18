@@ -182,3 +182,82 @@ print(c2.calc_area())
 from math import factorial
 from math import factorial, sqrt
 import math as m
+
+from math import pi
+class Circle:
+    def __init__(self,r,name):
+        self.name=name
+        self.radius = r
+    def calc_area(self):
+        print(pi*radius**2)
+        return pi*radius**2
+
+c1 = Circle(4.3,'A')
+print(c1.name)
+print(c1.radius)
+c1.color='red'
+print(c1.color)
+print(c1.calc_area())
+
+lst = [2,3,5]
+print(lst * 2)
+
+import numpy as np
+arr = np.array([1, 2, 3, 4, 5])
+print(np.__version__)
+print(arr)
+print(10*'*')
+arr = np.array(42)
+print(arr)
+print(10*'*')
+arr = np.array([[1, 2, 3], [4, 5, 6]])
+print(arr)
+print(10*'*')
+arr = np.array([[[1, 2, 3], [4, 5, 6]], [[1, 2, 3], [4, 5, 6]]])
+print(arr)
+a = np.array(42)
+b = np.array([1, 2, 3, 4, 5])
+c = np.array([[1, 2, 3], [4, 5, 6]])
+d = np.array([[[1, 2, 3], [4, 5, 6]], [[1, 2, 3], [4, 5, 6]]])
+print(a.ndim)
+print(b.ndim)
+print(c.ndim)
+print(d.ndim)
+arr = np.array([1, 2, 3, 4], ndmin=5)
+print(arr)
+print('number of dimensions :', arr.ndim)
+print(arr.ndim)
+print(arr.shape)
+print(arr.dtype)
+a = np.arange(20)
+print(a)
+print(100*'*')
+arr = np.array([[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [10, 11, 12]]])
+print(arr)
+print(arr[0, 1, 2])
+print(100*'*')
+arr = np.array([[1,2,3,4,5], [6,7,8,9,10]])
+print(arr)
+print('Last element from 2nd dim: ', arr[1, -1])
+print(100*'*')
+arr = np.array([1, 2, 3, 4, 5, 6, 7])
+print(arr)
+print(arr[1:5:2])
+print(100*'*')
+arr = np.array([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]])
+print(arr)
+print(arr[0:2, 1:4])
+a=np.arange(100)
+print(a)
+print(a/3)
+print(a.reshape(10,10))
+a2 = np.arange(100).reshape(10,10)
+print(a2)
+print(a2[0])
+a3 = np.arange(9).reshape(3,3)
+print(a3)
+print(np.arange(100).reshape(5,20))
+print(a2.sum())
+print(a2[0].sum())
+print(a2.sum(axis=0))
+print(a2.sum(axis=1))
