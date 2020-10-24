@@ -57,7 +57,7 @@ print(a1.flatten())
 
 # import numpy as np
 # array1 = np.array([2, 2, 2, 0, 2, 0, 2])
-# print np.where(array1==0, 1, array1) 
+# print np.where(array1==0, 1, array1)
 print(a1[a1<10])
 a = np.arange(100).reshape(10,10)
 print(a[a<50])
@@ -67,3 +67,9 @@ print(a[(a%5==0) | (a%3 == 0)])
 a = np.arange(100).reshape(10,10)
 a[a%5==0] = -1
 print(a)
+
+# a[0], a[1], ... 
+# a[-1], a[-2], ...
+# a[1:5], a[-4:], ...
+# a[1:6 , 2:5], ...
+# a[a<9], a[(a%2==0) | (a>40)], ...
