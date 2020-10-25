@@ -1,7 +1,7 @@
 print("Hello - 10242020")
 import pandas as pd
 import numpy as np
-import seaborn as sbn
+import seaborn as sns
 import matplotlib.pyplot as plt
 import warnings
 warnings.filterwarnings('ignore')
@@ -95,3 +95,70 @@ print(df.sort_values('Bounce_rate'))
 # grp = df_5.groupby(by=['subject','names']).mean()['marks']
 # df2.sort_values('country',ascending=False,inplace= True)
 
+data1={'Day':[1,2,3,4,5,6,7], 'Visitors':[300,400,230,230,400,600,450],'Bounce_rate':[100,50,20,40,10,30,70]} 
+data2={'Day':[1,2,3,4,5,6,7], 'Visitors':[265,401,290,230,290,505,400],'Bounce_rate':[101,60,30,30,20,20,60]}
+df1=pd.DataFrame(data1)
+df2=pd.DataFrame(data2)
+print(df1)
+print(df2)
+
+df1=pd.DataFrame(data1,index=[10,20,30,40,50,60,70])
+df2=pd.DataFrame(data2,index=[10,20,30,40,50,60,70])
+print(df1)
+print(df2)
+
+data1={'Day':[1,2,3,4,5,6,7], 'Visitors':[300,400,230,230,400,600,450],'Bounce_rate':[100,50,20,40,10,30,70]} 
+data2={'Day':[1,2,3,4,5,6,7], 'Visitors':[265,401,290,230,290,505,450],'Bounce_rate':[101,60,20,30,20,20,60]} 
+df1 = pd.DataFrame(data1, index=[10,20,30,40,50,60,70]) 
+df2 = pd.DataFrame(data2, index=[10,20,30,40,50,60,70])
+
+# df1=pd.DataFrame(data1,index=list(range(1000,10000,10)))
+# df2=pd.DataFrame(data2,index=list(range(1000,10000,10)))
+# print(df1)
+# print(df2)
+
+print(pd.merge(df1,df2,on=['Visitors']))
+print(pd.merge(df1,df2,on=['Day']))
+print(pd.merge(df1,df2,on=['Bounce_rate']))
+print(pd.merge(df1,df2,on=['Day','Bounce_rate']))
+print(pd.merge(df1,df2,on=['Day','Bounce_rate'],how='inner'))
+
+customer = pd.read_csv('/Users/stomar-n/001_sudhir_2020_nmac/cognexia_training_python/10232020/Data/customer_data.csv')
+
+internet = pd.read_csv('/Users/stomar-n/001_sudhir_2020_nmac/cognexia_training_python/10232020/Data/internet_data.csv')
+print(customer.head)
+print(internet.head)
+new_df = pd.merge(customer,internet,on=['customerID'])
+print(new_df)
+
+print(titanic.sort_values('Age',ascending=False))
+print(titanic.sort_values('Fare',ascending=False))
+data = {'company': ['Google', 'Microsoft', 'Google', 'Amazon', 'Amazon', 'Google'], 
+'sales': [233, 453, 342, 644, 255, 300], 
+'person': ['Aakash', 'Mohan', 'John', 'Alexandre', 'Fred', 'Muralidhar']} 
+df = pd.DataFrame(data) 
+print(df)
+print(df.groupby(by='company'))
+g = df.groupby(by='company')
+print(g)
+print(list(g))
+for n,df in g:
+    print(n)
+    print('*************')
+    print(df)
+    print()
+
+for n,df in g:
+    if n == 'Google':
+        print(df['sales'].mean())
+    # print(n)
+    # print('*************')
+    # print(df)
+    # print()
+#groupby is a generator object
+a=np.array([911,2323,3434,4000,5677,1200,3210,4490,5400,6755,699,1539,2399,4200,5599,1239,2500,4211,5388,6877])
+print(a)
+plt.figure(figsize=(8,5))
+sns.barplot(list(range(len(a))),a)
+plt.show()
+# sns.barplot(list(range(len(a))),a)
