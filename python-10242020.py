@@ -195,3 +195,8 @@ for c in gas.columns[1:]:
     plt.plot(gas['Year'],gas[c])
 plt.legend(gas.columns[1:])
 plt.show()
+
+# scatter
+# pie, 
+# box & wisker
+# # heatmap
