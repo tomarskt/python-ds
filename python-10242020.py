@@ -91,3 +91,7 @@ print(df[['Visitors']].iloc[0:5])
 #sort_values()
 print(df.groupby('Visitors'))
 print(df.sort_values('Bounce_rate'))
+
+# grp = df_5.groupby(by=['subject','names']).mean()['marks']
+# df2.sort_values('country',ascending=False,inplace= True)
+
