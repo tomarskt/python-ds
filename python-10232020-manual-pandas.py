@@ -49,3 +49,6 @@ print(len(titanic))
 print(len(titanic.columns))
 print(titanic.info)
 # print(len(titanic.Name))
+# d={'Day':[1,2,3,4,5,6,7], 'Visitors':[300,400,230,230,400,600,450],'Bounce_rate':[100,50,20,40,10,30,70]} 
+# pd.DataFrame(d)
+# print(pd.DataFrame(d))
