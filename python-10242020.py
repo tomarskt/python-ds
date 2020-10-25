@@ -17,5 +17,16 @@ print(titanic.head(2))
 d={'Day':[1,2,3,4,5,6,7],'Visitors':[300,400,500,600,700,800],'Bounce_rate':[100,50,20,40,10,30,70]}
 # pd.DataFrame(d)
 titanic.drop('Cabin',axis=1)
+print(titanic.head)
+titanic.drop('Cabin',axis=1,inplace=True)
+# titanic.drop('Cabin',axis='columns',inplace=True)
+print(titanic.head)
+# titanic.drop('Cabin',axis='rows',inplace=True)
+
+print(titanic.tail(2))
+print(titanic.drop(['PassengerId','Survived','Name'],axis=1, inplace=True))
+print(titanic.tail(2))
 titanic = pd.read_csv('/Users/stomar-n/001_sudhir_2020_nmac/cognexia_training_python/10232020/Data/titanic.csv',usecols=['PassengerId','Name','Age','Fare'])
 print(titanic.tail(2))
+#Axis = 0 = Rows
+#Axis = 1 = Columns
