@@ -1,0 +1,75 @@
+FROM openjdk:7
+ENV DEBIAN_FRONTEND noninteractive
+################################################################################################
+###
+### Environment variables
+###
+# Android & Gradle
+ENV GRADLE_URL https://downloads.gradle-dn.com/distributions/gradle-6.7-all.zip
+ENV GRADLE_HOME /usr/local/gradle-6.7
+ENV ANDROID_SDK_URL http://dl.google.com/android/android-sdk_r24.3.3-linux.tgz
+ENV ANDROID_HOME /usr/local/android-sdk-linux
+ENV ANDROID_SDK_COMPONENTS_LATEST platform-tools,build-tools-23.0.1,build-tools-25.0.3,android-23,android-25,extra-android-support,extra-android-m2repository,extra-google-m2repository
+# NodeJS
+ENV NPM_CONFIG_LOGLEVEL info
+ENV NODE_VERSION 12.16.1
+#Ruby
+ENV RUBY_MAJOR 2.6
+ENV RUBY_VERSION 2.6.3
+ENV RUBY_DOWNLOAD_SHA256 1a4fa8c2885734ba37b97ffdb4a19b8fba0e8982606db02d936e65bac07419dc
+ENV RUBYGEMS_VERSION 2.6.10
+ENV BUNDLER_VERSION 1.15.3
+################################################################################################
+###
+### Install Android SDK & Build Tools
+###
+# Dependencies
+RUN dpkg --add-architecture i386
+RUN apt-get update
+RUN apt-get install -yq libstdc++6:i386 zlib1g:i386 libncurses5:i386 ant maven --no-install-recommends
+RUN curl -L ${GRADLE_URL} -o /tmp/gradle-6.7-all.zip
+RUN unzip /tmp/gradle-6.7-all.zip -d /usr/local
+RUN rm /tmp/gradle-6.7-all.zip
+RUN curl -L ${ANDROID_SDK_URL} | tar xz -C /usr/local
+RUN mkdir -p  /usr/local/opt/
+RUN ln -s /usr/local/android-sdk-linux /usr/local/opt/android-sdk
+RUN (while sleep 3; do echo "y"; done) | ${ANDROID_HOME}/tools/android update sdk --no-ui --all --filter "${ANDROID_SDK_COMPONENTS_LATEST}"
+################################################################################################
+###
+### Install NodeJS & NPM
+###
+RUN apt install -y curl
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.36.0/install.sh | bash
+ENV NVM_DIR=/root/.nvm
+RUN . "$NVM_DIR/nvm.sh" && nvm install ${NODE_VERSION}
+RUN . "$NVM_DIR/nvm.sh" && nvm use v${NODE_VERSION}
+RUN . "$NVM_DIR/nvm.sh" && nvm alias default v${NODE_VERSION}
+ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
+RUN node --version
+RUN npm --version
+# ################################################################################################
+# ###
+# ### Install rbenv and ruby
+# ###
+RUN apt-get update
+RUN apt-get install -y --force-yes zlib1g-dev libssl-dev libreadline-dev libyaml-dev libxml2-dev libxslt-dev
+RUN apt-get install -y --force-yes build-essential curl git
+RUN apt-get clean
+RUN git clone https://github.com/sstephenson/rbenv.git /root/.rbenv
+RUN echo '# rbenv setup' > /etc/profile.d/rbenv.sh
+RUN echo 'export RBENV_ROOT=/root/.rbenv' >> /etc/profile.d/rbenv.sh
+RUN echo 'export PATH="$RBENV_ROOT/bin:$PATH"' >> /etc/profile.d/rbenv.sh
+RUN echo 'eval "$(rbenv init -)"' >> /etc/profile.d/rbenv.sh
+RUN chmod +x /etc/profile.d/rbenv.sh
+RUN mkdir /root/.rbenv/plugins
+RUN git clone https://github.com/sstephenson/ruby-build.git /root/.rbenv/plugins/ruby-build
+ENV RBENV_ROOT /root/.rbenv
+ENV PATH "$RBENV_ROOT/bin:$RBENV_ROOT/shims:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+RUN rbenv install 2.6.3
+RUN rbenv global 2.6.3
+RUN gem install bundler
+# ################################################################################################
+# ###
+# ### Install Fastlane
+# ###
+RUN gem install fastlane -NV
