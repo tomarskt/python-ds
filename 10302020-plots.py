@@ -98,3 +98,6 @@ df.drop(['id','Unnamed: 32'], axis=1, inplace=True)
 
 plt.figure(figsize=(15,10))
 sns.heatmap(df.corr(),cmap='viridis',annot=True)
+
+plt.figure(figsize=(15,10))
+sns.heatmap(df.corr(),cmap='viridis',annot=True)
