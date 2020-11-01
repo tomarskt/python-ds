@@ -30,3 +30,18 @@ print(X_train.shape)
 print(Y_train.shape)
 print(X_test.shape)
 print(Y_test.shape)
+
+print(X_train)
+print(Y_train)
+print(X_test)
+print(Y_test)
+
+model = LinearRegression()
+#y = mx + c
+model.fit(X_train,Y_train)
+LinearRegression()
+print(model.coef_)
+print(model.intercept_)
+experience=20
+salary = model.coef_*experience + model.intercept_
+print(salary)
