@@ -45,3 +45,11 @@ print(model.intercept_)
 experience=20
 salary = model.coef_*experience + model.intercept_
 print(salary)
+print(model.predict(X_test))
+print(Y_test)
+print(model.predict(np.array([[5.7]])))
+new_data=np.array([[2.5],[8],[17],[19]])
+print(model.predict(new_data))
+
+#RMSE
+#Pilgrim Bank...Case Study--
