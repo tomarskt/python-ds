@@ -101,3 +101,8 @@ sns.heatmap(df.corr(),cmap='viridis',annot=True)
 
 plt.figure(figsize=(15,10))
 sns.heatmap(df.corr(),cmap='viridis',annot=True)
+
+
+tips=sns.load_dataset('tips')
+tips.head()
+tips.describe)
