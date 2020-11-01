@@ -11,5 +11,22 @@ df = pd.read_csv('/Users/stomar-n/001_sudhir_2020_nmac/cognexia_training_python/
 print(df.head())
 # y = mc + c
 # sal = m*exp + c
+# y = b1x+b0
 sns.scatterplot(df.Salary,df.YearsExperience)
-plt.show()
+print(df.info())
+print(df.min())
+print(df.max())
+# plt.show()
+X = df.iloc[:,:1].values
+Y = df.iloc[:,1].values
+print(X[:5])
+print(Y[:5])
+print(X.shape)
+print(Y.shape)
+print(Y[:5])
+print(Y[:25])
+X_train,X_test,Y_train,Y_test = train_test_split(X,Y,test_size=0.2,random_state=5)
+print(X_train.shape)
+print(Y_train.shape)
+print(X_test.shape)
+print(Y_test.shape)
