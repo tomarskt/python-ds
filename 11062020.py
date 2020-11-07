@@ -60,3 +60,6 @@ plt.scatter(X_train,Y_train,color='red')
 plt.plot(X_train,model.predict(X_train),color='blue')
 plt.scatter(X_test,Y_test,color='green')
 plt.show()
+from sklearn.metrics import mean_squared_error
+Y_pred=model.predict(X_test)
+print(np.sqrt(mean_squared_error(Y_test,Y_pred)))
