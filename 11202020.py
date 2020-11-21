@@ -14,37 +14,37 @@ from sklearn.metrics import accuracy_score,confusion_matrix
 from sklearn.datasets import load_boston
 import warnings
 warnings.filterwarnings('ignore')
-df = pd.read_csv('/Users/stomar-n/001_sudhir_2020_nmac/projects/cognixia/data/Churn_Modelling.csv')
-print(df.head())
-print(df.info())
-df.drop(['RowNumber','CustomerId','Surname'],axis=1,inplace=True)
-print(df.head())
-print(df.describe(percentiles=(0.5,0.7,0.8,0.9,0.95,0.99)))
-print(df.sort_values(by='Age',ascending=False))
-print(df.Gender.unique())
-print(df.Geography.unique())
-df.Gender=df.Gender.apply(lambda x: 1 if x=='Male' else 0)
-geo = pd.get_dummies(df.Geography,drop_first=True)
-print(geo) #get_dummies replace category with 0/1 or numerical
-df = pd.concat([df,geo],axis=1)
-print(df.drop('Geography',axis=1,inplace=True))
-print(df.info())
-x = df.drop('Exited',axis=1)
-print(x)
-y = df['Exited']
-print(y)
-x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.2,random_state=142)
-print(x_train.head())
+# df = pd.read_csv('/Users/stomar-n/001_sudhir_2020_nmac/projects/cognixia/data/Churn_Modelling.csv')
+# print(df.head())
+# print(df.info())
+# df.drop(['RowNumber','CustomerId','Surname'],axis=1,inplace=True)
+# print(df.head())
+# print(df.describe(percentiles=(0.5,0.7,0.8,0.9,0.95,0.99)))
+# print(df.sort_values(by='Age',ascending=False))
+# print(df.Gender.unique())
+# print(df.Geography.unique())
+# df.Gender=df.Gender.apply(lambda x: 1 if x=='Male' else 0)
+# geo = pd.get_dummies(df.Geography,drop_first=True)
+# print(geo) #get_dummies replace category with 0/1 or numerical
+# df = pd.concat([df,geo],axis=1)
+# print(df.drop('Geography',axis=1,inplace=True))
+# print(df.info())
+# x = df.drop('Exited',axis=1)
+# print(x)
+# y = df['Exited']
+# print(y)
+# x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.2,random_state=142)
+# print(x_train.head())
 
-from sklearn.preprocessing import StandardScaler
-sc = StandardScaler()
-x_train = sc.fit_transform(x_train)
-x_test = sc.transform(x_test)
-logitreg = LogisticRegression()
-logitreg.fit(x_train,y_train)
-y_pred=logitreg.predict(x_test)
-print(accuracy_score(y_test,y_pred))
-print(confusion_matrix(y_test,y_pred))
+# from sklearn.preprocessing import StandardScaler
+# sc = StandardScaler()
+# x_train = sc.fit_transform(x_train)
+# x_test = sc.transform(x_test)
+# logitreg = LogisticRegression()
+# logitreg.fit(x_train,y_train)
+# y_pred=logitreg.predict(x_test)
+# print(accuracy_score(y_test,y_pred))
+# print(confusion_matrix(y_test,y_pred))
 # boston = load_boston()
 # print(boston.DESCR)
 # df = pd.DataFrame(boston.data)
@@ -150,3 +150,55 @@ print(confusion_matrix(y_test,y_pred))
 # from sklearn.metrics import mean_squared_error
 # Y_pred=model.predict(X_test)
 # print(np.sqrt(mean_squared_error(Y_test,Y_pred)))
+churn = pd.read_csv('/Users/stomar-n/001_sudhir_2020_nmac/projects/cognixia/data/churn_data.csv')
+internet = pd.read_csv('/Users/stomar-n/001_sudhir_2020_nmac/projects/cognixia/data/internet_data.csv')
+customer = pd.read_csv('/Users/stomar-n/001_sudhir_2020_nmac/projects/cognixia/data/customer_data.csv')
+print(churn.head(2))
+print(internet.head(2))
+print(customer.head(2))
+df = pd.merge(churn,customer,on='customerID')
+print(df.head(2))
+tel = pd.merge(df,internet,on='customerID')
+print(tel.head(2))
+print(tel.shape)
+print(tel.describe())
+print(tel.info())
+tel.drop(['customerID'],axis=1,inplace=True)
+print(pd.get_dummies(tel))
+print(tel.columns)
+for col in tel.columns:
+    print(col, '-->\t\t',tel[col].unique)
+vars = ['PhoneService','Churn','Partner','Dependents','PaperlessBilling']
+def bin_map(x):
+    return x.map({'Yes':1, 'No':0})
+tel[vars]=tel[vars].apply(bin_map)
+print(tel.head(2))
+
+for col in tel.columns:
+    # print(tel[col].dtype)
+    if tel[col].dtype == 'O':
+        print(col, '-->\t\t', tel[col].unique())
+print(tel.info())
+tel.gender = tel.gender.apply(lambda x:1 if x == 'Male' else 0)
+vars = ['Contract','PaymentMethod','gender','InternetService']
+d = pd.get_dummies(tel[vars],drop_first=True)
+# pd.get_dummies(tel[vars],drop_first=True)
+print(d)
+tel = pd.concat([tel,d],axis=1)
+tel.drop(vars,axis=1,inplace=True)
+
+for col in tel.columns:
+    if tel[col].dtype == 'O':
+        print(col, '-->\t\t', tel[col].unique())
+
+vars = ['OnlineSecurity','OnlineBackup','DeviceProtection','TechSupport','StreamingTV','StreamingMovies']
+for col in vars:
+    d = pd.get_dummies(tel[col],prefix=col)
+    d.drop(col+'_No internet service', axis=1, inplace = True)
+    tel = pd.concat([tel,d], axis=1)
+tel.drop(vars,inplace=True, axis=1)
+print(tel.head())
+
+for col in tel.columns:
+    if tel[col].dtype == 'O':
+        print(col, '-->\t\t', tel[col].unique())
