@@ -202,3 +202,23 @@ print(tel.head())
 for col in tel.columns:
     if tel[col].dtype == 'O':
         print(col, '-->\t\t', tel[col].unique())
+
+print(tel.info())
+
+d = pd.get_dummies(tel['MultipleLines'],prefix='MultipleLines')
+d.drop('MultipleLines_No phone service', inplace = True, axis=1)
+tel = pd.concat([tel,d],axis=1)
+tel.drop('MultipleLines',inplace=True,axis=1)
+
+for col in tel.columns:
+    if tel[col].dtype == 'O':
+        print(col, '-->\t\t', tel[col].unique())
+# tel.to_csv('/Users/stomar-n/001_sudhir_2020_nmac/projects/cognixia/data/tel.csv')
+pd.to_numeric(tel['TotalCharges'],errors='coerce')
+print(tel.info())
+tel.dropna(inplace=True)
+print(tel.info())
+print(tel.head())
+# //get x,y, train_test_split
+x = tel.drop('Churn', axis=1)
+y = tel['Churn']
