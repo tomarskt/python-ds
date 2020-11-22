@@ -1,4 +1,4 @@
-print("11202020")
+print("11212020")
 
 import pandas as pd 
 import numpy as np 
@@ -222,3 +222,27 @@ print(tel.head())
 # //get x,y, train_test_split
 x = tel.drop('Churn', axis=1)
 y = tel['Churn']
+print(x.columns)
+x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.33,random_state=100)
+print(x_train.head())
+print(x_train.shape)
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+vars = ['tenure','MonthlyCharges','TotalCharges']
+# x_train[vars] = sc.fit_transform(x_train[vars])
+# x_test[vars] = sc.transform(x_test[vars])
+# print(x_test.head())
+plt.figure(figsize=(10,10))
+sns.heatmap(tel.corr(),annot=True)
+
+
+import statsmodels.api as sm
+logm1 = sm.GLM(y_train,sm.add_constant(x_train),family=sm.families.Binomial())
+print(logm1)
+print(logm1.fit().summary())
+
+# logreg = LogisticRegression()
+# from sklearn.feature_selection import RFE
+# rfe = RFE(logreg,15)
+# rfe = rfe.fit(x_train,y_train)
+# print(rfe_support_)
