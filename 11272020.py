@@ -84,4 +84,6 @@ k=3
 from sklearn.cluster import AgglomerativeClustering
 from scipy.cluster.hierarchy import dendrogram, linkage
 df = pd.read_csv('/Users/stomar-n/001_sudhir_2020_nmac/projects/cognixia/data/Mall_Customers.csv')
+# import sklearn
+# print(dir(sklearn))
 print(df.head())
