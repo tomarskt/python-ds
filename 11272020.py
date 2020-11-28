@@ -87,3 +87,22 @@ df = pd.read_csv('/Users/stomar-n/001_sudhir_2020_nmac/projects/cognixia/data/Ma
 # import sklearn
 # print(dir(sklearn))
 print(df.head())
+print(df.info())
+X = df.iloc[:,[3,4]].values
+print(X[:5])
+
+# lst = []
+# for i in range(1,11):
+#     km = KMeans(n_clusters=i,random_state=0)
+#     km.fit(X)
+#     lst.append(km.inertia_)
+# print(lst)
+# plt.plot(range(1,11),lst,marker='o')
+# plt.show()
+
+# plt.figure(figize=(15,10))
+den = dendrogram(linkage(X,method='ward'))
+plt.show()
+hc = AgglomerativeClustering(n_clusters=5)
+
+print(hc.fit_predict(X))
