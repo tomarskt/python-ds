@@ -102,7 +102,18 @@ print(X[:5])
 
 # plt.figure(figize=(15,10))
 den = dendrogram(linkage(X,method='ward'))
-plt.show()
+# plt.show()
 hc = AgglomerativeClustering(n_clusters=5)
 
 print(hc.fit_predict(X))
+
+
+from sklearn.datasets import load_iris
+iris = load_iris()
+df = pd.DataFrame(iris.data, columns = iris.feature_names)
+print(df.head())
+df['cluster'] = iris.target
+print(df.head())
+
+
+#KNN - K Nearest Neighbours
