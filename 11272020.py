@@ -117,3 +117,26 @@ print(df.head())
 
 
 #KNN - K Nearest Neighbours
+df = pd.read_csv('/Users/stomar-n/001_sudhir_2020_nmac/projects/cognixia/data/diabetes.csv')
+print(df.head())
+print(len(df))
+df.Outcome.unique()
+c=df.corr()
+print(c['Outcome'])
+sns.heatmap(df.corr(),annot=True,cmap='coolwarm')
+# plt.show()
+# array([1,0])
+from sklearn.model_selection import train_test_split
+X = df.iloc[:,:-1].values
+Y = df.iloc[:,-1].values
+print(X)
+print(Y)
+X_train,X_test,Y_train,Y_test=train_test_split(X,Y,test_size=0.2,random_state=123)
+print(X_train)
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score,confusion_matrix
+knn = KNeighborsClassifier(n_neighbors=50)
+knn.fit(X_train,Y_train)
+Y_pred=knn.predict(X_test)
+print(accuracy_score(Y_test,Y_pred))
+# print()
